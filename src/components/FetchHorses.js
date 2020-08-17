@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import useSWR from "swr";
 
 export class FetchHorses extends Component {
   static displayName = ""; //FetchData.name;

@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import { Container } from 'reactstrap';
-import { NavMenu } from './NavMenu';
+import React, { Component } from "react";
+import { Container } from "reactstrap";
+//import { NavMenu } from "./NavMenu";
+import Nav from "./Nav";
 
-export class Layout extends Component {
-  static displayName = Layout.name;
+const Layout = ({header, children, noHeader, activeTab}) => (
+  <>
+    <header>{noHeader || header || <Nav activeTab={activeTab} />}</header>
+    <main>
+      <div>{children}</div>
+    </main>
+  </>
+)
 
-  render () {
-    return (
-      <div>
-        <NavMenu />
-        <Container>
-          {this.props.children}
-        </Container>
-      </div>
-    );
-  }
-}
+export default Layout;

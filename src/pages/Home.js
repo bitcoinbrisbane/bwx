@@ -1,17 +1,27 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Bet with coins</h1>
-      <p>No personal infomation gathered</p>
-      <p>Only a payout address is required</p>
-      <p>Tor supported</p>
-      <p>Instant payouts (after transaction confirmation)</p>
-      <p>Great odds</p>
-      <p>Transparent</p>
-      <p>Fast support</p>
-    </div>
+    <Layout>
+        <div className="container-fluid py-5">
+          <div className="row">
+            <div className="col">
+
+            <h1>Bet With Coins</h1>
+            <p>No personal infomation gathered</p>
+            <p>Only a payout address is required</p>
+            <p>Tor supported</p>
+            <p>Instant payouts (after transaction confirmation)</p>
+            <p>Great odds</p>
+            <p>Transparent</p>
+            <p>Fast support</p>
+          </div>
+        </div>
+      </div>
+
+    </Layout>
+
   );
 };
 
