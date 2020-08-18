@@ -12,6 +12,7 @@ const Home = () => {
             <p>No personal infomation gathered</p>
             <p>Only a payout address is required</p>
             <p>Tor supported</p>
+            <p>Private messages via PGP encrypted mail</p>
             <p>Instant payouts (after transaction confirmation)</p>
             <p>Great odds</p>
             <p>Transparent</p>
