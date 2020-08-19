@@ -6,7 +6,7 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
   // Set default links
   if (!links)
     links = [
-      { label: "Horses", onClick: () => history.push("/addresses") }
+      { label: "Horses", onClick: () => history.push("/horses") }
     ];
 
   // For a dropdown menu item, add an object like this to the links array
@@ -29,7 +29,7 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
   );
 
   const renderLinks = () => (
-    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Navbar.Collapse id="basic-navbar-nav">
       <Nav>
         {links.map(({ label, onClick, children }, i) => {
           const classes = label === activeTab ? "active" : "";

@@ -4,29 +4,23 @@ import React from "react";
 
 const HorseRacingMatrix = ({ data, ...props }) => (
   <div>
-    <h2>Today</h2>
     <table className="table table-striped">
-      <thead>
+      {/* <thead>
         <tr>
           <th>Number</th>
           <th>Name</th>
           <th>Jump</th>
         </tr>
-      </thead>
+      </thead> */}
       <tbody>
-        {data.meets.map(meet => (
+        { data.meets.map(meet => (
           <tr key={meet.location}>
-            <td>{meet.location}</td>
-            {/* <td>
-                <Link
-                to={{
-                    pathname: "/race/" + race.id
-                }}
-                >
-                {race.name}
-                </Link>
-            </td>
-            <td>{race.start}</td> */}
+            <td>{meet.name} ({meet.location})</td>
+            
+            { meet.races.map(race => (
+              <td>R{race.index}</td>
+            ))}
+
           </tr>
         ))}
       </tbody>

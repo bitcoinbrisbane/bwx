@@ -4,7 +4,7 @@ import useSWR from "swr";
 import useResource from "../hooks/useResource";
 import { Link } from "react-router-dom";
 //import ErrorMessage from "../components/ErrorMessage";
-//import Loader from "../components/Loader";
+import Loader from "../components/Loader";
 import HorseRacingMatrix from "../components/HorseRacingMatrix";
 
 const HorseRacingPage = () => {
@@ -19,8 +19,9 @@ const HorseRacingPage = () => {
   return (
     <Layout>
       <div className="container-fluid py-5">
+        <Loader loading={isLoading} />
         <h1 className="mb-3">Horses</h1>
-
+        <h2>Today</h2>
         <HorseRacingMatrix data={data}></HorseRacingMatrix>
       </div>
     </Layout>
