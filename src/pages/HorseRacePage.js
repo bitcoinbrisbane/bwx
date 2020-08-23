@@ -26,7 +26,6 @@ const HorseRacePage = () => {
         <Loader loading={isLoading} />
         <h1 className="mb-3">R{data.raceNumber} {data.raceName}</h1>
 
-        <h2>Runners</h2>
         <Runners data={data}></Runners>
       </div>
     </Layout>

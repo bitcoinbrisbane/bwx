@@ -40,7 +40,7 @@ export class BetSlip extends Component {
       Odds: 2.1,
     };
 
-    fetch("/api/betslip", {
+    fetch("/horse/quote", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
