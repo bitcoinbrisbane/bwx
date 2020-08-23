@@ -3,7 +3,7 @@ import { Router as ReactRouter, Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import HorseRacingPage from "../pages/HorseRacingPage";
 import HorseRacePage from "../pages/HorseRacePage";
-import { BetSlip } from "./BetSlip";
+import BetSlipPage from "../pages/BetSlipPage";
 import { createBrowserHistory } from "history";
 
 export const history = createBrowserHistory();
@@ -14,7 +14,7 @@ const Router = () => (
     <Switch>
       <Route path="/horses/:mnemonic/:id" component={HorseRacePage} />
       <Route path="/horses" component={HorseRacingPage} />
-      <Route path="/betslip" component={BetSlip} />
+      <Route path="/betslip/:mnemonic/:id/:runner" component={BetSlipPage} />
     </Switch>
     
   </ReactRouter>

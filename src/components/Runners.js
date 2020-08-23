@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { history } from "../components/Router";
 
-const Runners = ({ data, ...props }) => {
+const Runners = ({ data, mnemonic, id, ...props }) => {
   const [show, setShow] = useState(false);
 
   const handleClick = () => setShow(true);
@@ -30,7 +30,7 @@ const Runners = ({ data, ...props }) => {
               <td>{runner.handicapWeight} kg</td>
               <td>
                 
-                <Button variant="primary" block="true" onClick={() => history.push("/betslip/`${runner.number}`")}>{runner.fixedOdds.returnWin}</Button>
+                <Button variant="primary" block="true" onClick={() => history.push(`/betslip/${mnemonic}/${id}/${runner.number}`)}>{runner.fixedOdds.returnWin}</Button>
               </td>
               <td>
                 {/* <Button variant="primary" onClick={() => handleClick()}>

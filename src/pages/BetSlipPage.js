@@ -4,16 +4,17 @@ import useResource from "../hooks/useResource";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
-import Runners from "../components/Runners";
+import BetSlip from "../components/BetSlip";
 
-const HorseRacePage = () => {
-  const { mnemonic, id } = useParams();
+const BetSlipPage = () => {
+  const { mnemonic, id, runner } = useParams();
   console.log(mnemonic);
   console.log(id);
+  console.log(runner);
 
   const [data, error, isLoading] = useResource(
-    `/horseracing/${mnemonic}/${id}`,
-    { runners: [] }, // default data while loading
+    `/betslip/quote/${mnemonic}/${id}/${runner}`,
+    {}, // default data while loading
     { useSecureApi: false }
   );
 
@@ -23,14 +24,11 @@ const HorseRacePage = () => {
     <Layout>
       <div className="container-fluid py-5">
         <Loader loading={isLoading} />
-        <h1 className="mb-3">
-          R{data.raceNumber} {data.raceName}
-        </h1>
 
-        <Runners data={data} mnemonic={mnemonic} id={id}></Runners>
+        <BetSlip data={data}></BetSlip>
       </div>
     </Layout>
   );
 };
 
-export default HorseRacePage;
+export default BetSlipPage;

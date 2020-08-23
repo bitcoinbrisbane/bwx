@@ -16,7 +16,6 @@ const BetSlipForm = ({
   // Define default values and override with any passed in from props
   const now = moment().seconds(0).milliseconds(0).format("Y-MM-DDTkk:mm:ss");
   const initialValues = {
-    userID: "",
     amount: 0,
     ..._inititalValues
   };
