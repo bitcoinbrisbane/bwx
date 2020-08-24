@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/Layout";
-import useSWR from "swr";
 import useResource from "../hooks/useResource";
 import { Link } from "react-router-dom";
 //import ErrorMessage from "../components/ErrorMessage";

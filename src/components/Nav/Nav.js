@@ -6,7 +6,9 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
   // Set default links
   if (!links)
     links = [
-      { label: "Horses", onClick: () => history.push("/horses") }
+      { label: "Horses", onClick: () => history.push("/horses") },
+      { label: "Payout Address", onClick: () => history.push("/payoutaddress") },
+      { label: "History", onClick: () => history.push("/history") }
     ];
 
   // For a dropdown menu item, add an object like this to the links array
