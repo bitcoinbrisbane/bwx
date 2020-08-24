@@ -12,8 +12,14 @@ const BetSlipPage = () => {
   console.log(id);
   console.log(runner);
 
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+  const type = params.get("type");
+
+  //const id = useParams().type;
+
   const [data, error, isLoading] = useResource(
-    `/betslip/quote/${mnemonic}/${id}/${runner}`,
+    `/quote/${mnemonic}/${id}/${runner}?type=${type}`,
     {}, // default data while loading
     { useSecureApi: false }
   );
@@ -24,8 +30,7 @@ const BetSlipPage = () => {
     <Layout>
       <div className="container-fluid py-5">
         <Loader loading={isLoading} />
-
-        <BetSlip data={data}></BetSlip>
+        <BetSlip proposition={data.proposition} id={data.nonce}></BetSlip>
       </div>
     </Layout>
   );

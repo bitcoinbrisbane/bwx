@@ -2,11 +2,26 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { history } from "../components/Router";
+import bwx from "../../apis/bwx";
 
 const Runners = ({ data, mnemonic, id, ...props }) => {
   const [show, setShow] = useState(false);
 
-  const handleClick = () => setShow(true);
+  //const handleClick = () => setShow(true);
+
+  const handleClick = async (event) => (mnemonic, id, number, type) => {
+
+    const values = { }
+    
+    //
+    const data = {
+
+    }
+    
+    const url = "";
+    const { result } = bwx.secure['POST'](url, values);
+    history.push(`/betslip/${mnemonic}/${id}/${number}?type=${type}`);
+  }
 
   return (
     <div>
@@ -29,15 +44,10 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
               <td>{runner.riderDriverName}</td>
               <td>{runner.handicapWeight} kg</td>
               <td>
-                
-                <Button variant="primary" block="true" onClick={() => history.push(`/betslip/${mnemonic}/${id}/${runner.number}`)}>{runner.fixedOdds.returnWin}</Button>
+                <Button variant="primary" block="true" onClick={handleClick(mnemonic, id, runner.number,"win")}>{runner.fixedOdds.returnWin}</Button>
               </td>
               <td>
-                {/* <Button variant="primary" onClick={() => handleClick()}>
-                  {runner.fixedOdds.returnPlace}
-                </Button> */}
-
-                <Button variant="primary" block="true" onClick={() => history.push("/betslip")}>{runner.fixedOdds.returnPlace}</Button>
+                <Button variant="primary" block="true" onClick={() => history.push(`/betslip/${mnemonic}/${id}/${runner.number}?type=place`)}>{runner.fixedOdds.returnPlace}</Button>
               </td>
             </tr>
           ))}

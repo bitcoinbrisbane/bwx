@@ -1,41 +1,48 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 
-const BetSlip = ({ data, ...props }) => {
+const BetSlip = ({ proposition, id, ...props }) => {
+  const payoutAddress = () => {
+    const address = localStorage.getItem("bwx_address");
+    if (address === "" || address === undefined) {
+      return (
+        <div className="alert alert-danger">
+          You have not entered a payout address!
+        </div>
+      );
+    } else {
+      return (
+        <div className="alert alert-info">Your payout address is {address}</div>
+      );
+    }
+  };
+
   return (
     <div className="container">
       <h2>Bet Slip</h2>
+
+      <div className="alert alert-danger">
+        No bitcoin payment received. Once we have received a payment to this
+        address your wager will be placed.
+      </div>
+
+      <div className="card">
+        <div class="card-header">ID: {id}</div>
+        <div className="card-body">
+          <h5 className="card-title">{proposition}</h5>
+          <p class="card-text">
+            Your unique bitcoin address for this page is.  You can view the status of your bet at any time.  Betting closes at 
+          </p>
+          <a href="#" class="btn btn-primary">
+            Go somewhere
+          </a>
+        </div>
+      </div>
+
       <div className="panel panel-default">
         <div className="panel-body">
-
-          <h3>Status</h3>
-          <div className="alert alert-danger">
-            You have not entered a payout address.
-          </div>
-
-          <div className="alert alert-info">
-            You're betting on xxx to win @ . Your estimated payout will be displayed on the next page.
-          </div>
-
-          <h3>Payout Address</h3>
-
-          <form>
-            <div clas="form-group">
-              <label>
-                Enter your bitcoin address where you will receive payouts.
-                Please make sure you are in control of this address and do not
-                use an exchange address.
-              </label>
-              <input
-                id="payout"
-                className="form-control"
-              ></input>
-            </div>
-            <hr />
-            <button type="submit" className="btn btn-primary">
-              Get Payment Address
-            </button>
-          </form>
+          <h3>Details</h3>
+          <div className="alert alert-info">{proposition}</div>
         </div>
       </div>
     </div>
