@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
+import useResource from "../hooks/useResource";
+import QRCode from "qrcode.react";
 
-const BetSlip = ({ proposition, id, ...props }) => {
+const BetSlip = ({ proposition, address, ...props }) => {
   const payoutAddress = () => {
     const address = localStorage.getItem("bwx_address");
     if (address === "" || address === undefined) {
@@ -17,32 +19,27 @@ const BetSlip = ({ proposition, id, ...props }) => {
     }
   };
 
+  const paymentAddress = (address) => {
+    const url = `bitcoin:${address}`;
+    return(<QRCode value={url}></QRCode>)
+  }
+
   return (
     <div className="container">
-      <h2>Bet Slip</h2>
-
       <div className="alert alert-danger">
         No bitcoin payment received. Once we have received a payment to this
         address your wager will be placed.
       </div>
 
       <div className="card">
-        <div class="card-header">ID: {id}</div>
+        <div class="card-header">Bet Slip for {proposition}</div>
         <div className="card-body">
-          <h5 className="card-title">{proposition}</h5>
+          <h5 className="card-title">{address}</h5>
           <p class="card-text">
-            Your unique bitcoin address for this page is.  You can view the status of your bet at any time.  Betting closes at 
+            Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time.
           </p>
-          <a href="#" class="btn btn-primary">
-            Go somewhere
-          </a>
-        </div>
-      </div>
 
-      <div className="panel panel-default">
-        <div className="panel-body">
-          <h3>Details</h3>
-          <div className="alert alert-info">{proposition}</div>
+          { paymentAddress(address) }
         </div>
       </div>
     </div>

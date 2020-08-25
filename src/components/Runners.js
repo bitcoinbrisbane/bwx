@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Modal } from "react-bootstrap";
+//import { Modal } from "react-bootstrap";
 import { history } from "../components/Router";
 import bwx from "../apis/bwx";
 
 const Runners = ({ data, mnemonic, id, ...props }) => {
   const [show, setShow] = useState(false);
-
-  //const handleClick = () => setShow(true);
 
   const handleClick = async (mnemonic, id, runner, type, event) => {
 
@@ -21,11 +19,9 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
     }
     
     const url = "/betslip";
-    const { result } = await bwx.open.post(url, values);
+    const result = await bwx.open.post(url, values);
 
-    console.log(result);
-
-    history.push(`/betslip/result`);
+    history.push(`/betslip/${result.data}`);
   }
 
   return (
@@ -54,13 +50,12 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
               <td>
                 <Button variant="primary" block="true" onClick={() => history.push(`/betslip/${mnemonic}/${id}/${runner.number}?type=place`)}>{runner.fixedOdds.returnPlace}</Button>
 
-      
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <Modal show={show}>
+      {/* <Modal show={show}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -69,7 +64,7 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
           <Button variant="secondary">Close</Button>
           <Button variant="primary">Save Changes</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };
