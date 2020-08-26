@@ -5,8 +5,8 @@ import QRCode from "qrcode.react";
 
 const BetSlip = ({ proposition, address, ...props }) => {
   const payoutAddress = () => {
-    const address = localStorage.getItem("bwx_address");
-    if (address === "" || address === undefined) {
+    const payout_address = localStorage.getItem("bwx_address");
+    if (payout_address === "" || payout_address === undefined) {
       return (
         <div className="alert alert-danger">
           You have not entered a payout address!
@@ -14,7 +14,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
       );
     } else {
       return (
-        <div className="alert alert-info">Your payout address is {address}</div>
+        <div className="alert alert-info">Your payout address is {payout_address}</div>
       );
     }
   };
@@ -27,7 +27,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
   return (
     <div className="container">
       <div className="alert alert-danger">
-        No bitcoin payment received. Once we have received a payment to this
+        Status: Unpaid.  No bitcoin payment received. Once we have received a payment to this
         address your wager will be placed.
       </div>
 
@@ -36,7 +36,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
         <div className="card-body">
           <h5 className="card-title">{address}</h5>
           <p class="card-text">
-            Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time.
+            Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.
           </p>
 
           { paymentAddress(address) }

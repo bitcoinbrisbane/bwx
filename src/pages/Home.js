@@ -9,14 +9,8 @@ const Home = () => {
             <div className="col">
 
             <h1>Bet With Coins</h1>
-            <p>No personal infomation gathered</p>
-            <p>Only a payout address is required</p>
-            <p>Tor supported</p>
-            <p>Private messages via PGP encrypted mail</p>
-            <p>Instant payouts (after transaction confirmation)</p>
-            <p>Great odds</p>
-            <p>Transparent</p>
-            <p>Fast support</p>
+            <p>BWCs is a privacy focused crypto sports betting site.  We do not capture personal infomation and only ask our punters to supply a payment address.  We do not hold any of our customers funds, and payout immediately after the even has finished and payments confirmed on the blockchain.</p>
+            <p>We encourage all our punters to use PGP encrypted mail, should you need to contact us.  Our PGP public key can be found at </p>
           </div>
         </div>
       </div>

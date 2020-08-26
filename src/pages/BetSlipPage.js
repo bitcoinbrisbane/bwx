@@ -18,12 +18,12 @@ const BetSlipPage = () => {
   // //const id = useParams().type;
 
   const [data, error, isLoading] = useResource(
-    `/betslip/${address}`,
+    `/betslip?address=${address}`,
     {}, // default data while loading
     { useSecureApi: false }
   );
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <Layout>

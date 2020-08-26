@@ -8,21 +8,23 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
   const [show, setShow] = useState(false);
 
   const handleClick = async (mnemonic, id, runner, type, event) => {
+    console.log("click");
+    console.log(mnemonic);
 
     const values = {
-      "coin": "btc",
-      "raceid": 7,
-      "runner": 2,
-      "mnemonic": "ROC",
-      "type": "win",
-      "payoutaddress": "3MpGFSaRMNsrj3UG1BSM5fEef7GFaqpxhJ"
-    }
-    
+      coin: "btc",
+      raceid: parseInt(id, 10),
+      runner: runner,
+      mnemonic: mnemonic,
+      type: type,
+      payoutaddress: "3MpGFSaRMNsrj3UG1BSM5fEef7GFaqpxhJ"
+    };
+
     const url = "/betslip";
     const result = await bwx.open.post(url, values);
 
     history.push(`/betslip/${result.data}`);
-  }
+  };
 
   return (
     <div>
@@ -45,11 +47,28 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
               <td>{runner.riderDriverName}</td>
               <td>{runner.handicapWeight} kg</td>
               <td>
-                <Button variant="primary" block="true" onClick={(e) => handleClick(mnemonic, id, runner.number, "win", e)}>{runner.fixedOdds.returnWin}</Button>
+                <Button
+                  variant="primary"
+                  block="true"
+                  onClick={e =>
+                    handleClick(mnemonic, id, runner.number, "win", e)
+                  }
+                >
+                  {runner.fixedOdds.returnWin}
+                </Button>
               </td>
               <td>
-                <Button variant="primary" block="true" onClick={() => history.push(`/betslip/${mnemonic}/${id}/${runner.number}?type=place`)}>{runner.fixedOdds.returnPlace}</Button>
-
+                <Button
+                  variant="primary"
+                  block="true"
+                  onClick={() =>
+                    history.push(
+                      `/betslip/${mnemonic}/${id}/${runner.number}?type=place`
+                    )
+                  }
+                >
+                  {runner.fixedOdds.returnPlace}
+                </Button>
               </td>
             </tr>
           ))}
