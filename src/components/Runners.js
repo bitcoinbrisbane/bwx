@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-//import { Modal } from "react-bootstrap";
 import { history } from "../components/Router";
 import bwx from "../apis/bwx";
 
 const Runners = ({ data, mnemonic, id, ...props }) => {
-  const [show, setShow] = useState(false);
 
-  const handleClick = async (mnemonic, id, runner, type, event) => {
+  const handleClick = async (mnemonic, id, proposition, runner, type, event) => {
     console.log("click");
     console.log(mnemonic);
 
+    const _payout = localStorage.getItem("bwx_address");
+
     const values = {
-      coin: "btc",
+      coin: "bch",
+      mnemonic: mnemonic,
+      payoutaddress: _payout,
+      proposition: proposition,
       raceid: parseInt(id, 10),
       runner: runner,
-      mnemonic: mnemonic,
-      type: type,
-      payoutaddress: "3MpGFSaRMNsrj3UG1BSM5fEef7GFaqpxhJ"
+      type: type
     };
 
     const url = "/betslip";
@@ -51,7 +52,7 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
                   variant="primary"
                   block="true"
                   onClick={e =>
-                    handleClick(mnemonic, id, runner.number, "win", e)
+                    handleClick(mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "win", e)
                   }
                 >
                   {runner.fixedOdds.returnWin}
@@ -61,10 +62,8 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
                 <Button
                   variant="primary"
                   block="true"
-                  onClick={() =>
-                    history.push(
-                      `/betslip/${mnemonic}/${id}/${runner.number}?type=place`
-                    )
+                  onClick={e =>
+                    handleClick(mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "place", e)
                   }
                 >
                   {runner.fixedOdds.returnPlace}

@@ -1,24 +1,29 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Button } from "react-bootstrap";
-import { useFormik } from "formik";
+import { Formik, Form } from "formik";
+import Input from "../components/form-inputs/Input";
 
 const PayoutAddressPage = () => {
-  const formik = useFormik({
-    initialValues: {
-      payout: localStorage.getItem("bwx_address")
-    },
-    onSubmit: values => {
-      localStorage.setItem("bwx_address", values.payout);
-      alert("Your address " + values.payout + " has been saved locally.");
-    }
-  });
+  // const formik = useFormik({
+  //   initialValues: {
+  //     payout: localStorage.getItem("bwx_address")
+  //   },
+
+  const onSubmit = values => {
+    localStorage.setItem("bwx_address", values.payout);
+    alert("Your address " + values.payout + " has been saved locally.");
+  };
+  //});
+
+  const _payout = localStorage.getItem("bwx_address");
+
+  const initialValues = { 
+    payout: _payout
+  }
 
   const payoutAddress = () => {
-    if (
-      localStorage.getItem("bwx_address") === "" ||
-      localStorage.getItem("bwx_address") === undefined
-    ) {
+    if (_payout === "" || _payout === undefined) {
       return (
         <div className="alert alert-danger">
           You have not entered a payout address!
@@ -50,31 +55,47 @@ const PayoutAddressPage = () => {
           </p>
 
           <div className="card">
-          <div className="card-body">
-          <h3>Your Bitcoin Address</h3>
+            <div className="card-body">
+              <h3>Your Bitcoin Address</h3>
 
-          <form onSubmit={formik.handleSubmit} className="col-12">
-            <div className="form-group">
-              <label>
-                Enter your bitcoin address where payouts will be received.
-              </label>
-              <input
-                id="payout"
-                name="payout"
-                type="text"
-                className="form-control"
-                onChange={formik.handleChange}
-                value={formik.values.payout}
-              />
+              <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                {({ isSubmitting }) => (
+                  <Form className="login-form">
+                    <label>Payout address</label>
+                    <Input name="payoutaddress" />
+
+                    <button
+                      className="btn btn-primary btn-block relative d-flex justify-content-center"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      <span className="mx-2">Save</span>
+                    </button>
+                  </Form>
+                )}
+              </Formik>
+              {/* <form onSubmit={handleSubmit} className="col-12">
+                <div className="form-group">
+                  <label>
+                    Enter your bitcoin address where payouts will be received.
+                  </label>
+                  <input
+                    id="payout"
+                    name="payout"
+                    type="text"
+                    className="form-control"
+                    onChange={formik.handleChange}
+                    value={_payout}
+                  />
+                </div>
+                <div className="form-group">
+                  <Button type="submit" className="btn btn-primary">
+                    Save
+                  </Button>
+                </div>
+              </form> */}
             </div>
-            <div className="form-group">
-              <Button type="submit" className="btn btn-primary">
-                Save
-              </Button>
-            </div>
-          </form>
-        </div>
-        </div>
+          </div>
         </div>
       </div>
     </Layout>

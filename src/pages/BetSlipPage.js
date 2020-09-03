@@ -11,11 +11,9 @@ const BetSlipPage = () => {
   const { address } = useParams();
   console.log(address);
 
-  // const search = window.location.search;
-  // const params = new URLSearchParams(search);
-  // const type = params.get("type");
-
-  // //const id = useParams().type;
+  const payoutAddress = () => {
+    return localStorage.getItem("bwx_address");
+  }
 
   const [data, error, isLoading] = useResource(
     `/betslip?address=${address}`,

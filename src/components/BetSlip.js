@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Modal from "react-bootstrap/Modal";
-import useResource from "../hooks/useResource";
 import QRCode from "qrcode.react";
 
 const BetSlip = ({ proposition, address, ...props }) => {
@@ -9,7 +7,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
     if (payout_address === "" || payout_address === undefined) {
       return (
         <div className="alert alert-danger">
-          You have not entered a payout address!
+          You have not entered a payout address!  Click here to set.
         </div>
       );
     } else {
@@ -26,13 +24,16 @@ const BetSlip = ({ proposition, address, ...props }) => {
 
   return (
     <div className="container">
+
+      { payoutAddress() }
+
       <div className="alert alert-danger">
         Status: Unpaid.  No bitcoin payment received. Once we have received a payment to this
         address your wager will be placed.
       </div>
 
       <div className="card">
-        <div class="card-header">Bet Slip for {proposition}</div>
+        <div className="card-header">Bet Slip for {proposition}</div>
         <div className="card-body">
           <h5 className="card-title">{address}</h5>
           <p class="card-text">
