@@ -62,7 +62,7 @@ const PayoutAddressPage = () => {
                 {({ isSubmitting }) => (
                   <Form className="login-form">
                     <label>Payout address</label>
-                    <Input name="payoutaddress" />
+                    <Input name="payout" />
 
                     <button
                       className="btn btn-primary btn-block relative d-flex justify-content-center"
