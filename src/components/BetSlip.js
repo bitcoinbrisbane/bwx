@@ -18,7 +18,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
   };
 
   const paymentAddress = (address) => {
-    const url = `bitcoin:${address}`;
+    const url = `${address}`;
     return(<QRCode value={url}></QRCode>)
   }
 
