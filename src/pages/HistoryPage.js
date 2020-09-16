@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
 import useResource from "../hooks/useResource";
-//import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
 import HistoryTable from "../components/HistoryTable";
+import useSWR, { mutate } from "swr";
 
 const HistoryPage = () => {
 
@@ -13,6 +13,9 @@ const HistoryPage = () => {
     [],
     { useSecureApi: false }
   );
+
+  // const { data, error } = useSWR("/workers/");
+  // const isLoading = !data && !error;
 
   console.log(data);
 

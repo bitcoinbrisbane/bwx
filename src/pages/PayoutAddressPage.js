@@ -5,16 +5,11 @@ import { Formik, Form } from "formik";
 import Input from "../components/form-inputs/Input";
 
 const PayoutAddressPage = () => {
-  // const formik = useFormik({
-  //   initialValues: {
-  //     payout: localStorage.getItem("bwx_address")
-  //   },
 
   const onSubmit = values => {
     localStorage.setItem("bwx_address", values.payout);
-    alert("Your address " + values.payout + " has been saved locally.");
+    alert("Your address " + values.payout + " has been saved to your browsers local storage.");
   };
-  //});
 
   const _payout = localStorage.getItem("bwx_address");
 
