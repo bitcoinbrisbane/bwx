@@ -36,7 +36,7 @@ const BetSlip = ({ proposition, address, ...props }) => {
         <div className="card-header">Bet Slip for {proposition}</div>
         <div className="card-body">
           <h5 className="card-title">{address}</h5>
-          <p class="card-text">
+          <p className="card-text">
             Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.
           </p>
 
