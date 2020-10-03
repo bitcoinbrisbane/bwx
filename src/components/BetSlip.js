@@ -1,7 +1,10 @@
 import React from "react";
 import QRCode from "qrcode.react";
+import useSWR, { mutate } from "swr";
 
 const BetSlip = ({ proposition, address, status, ...props }) => {
+
+  const { data, error } = useSWR("/bet/status");
   
   const payoutAddress = () => {
     const payout_address = localStorage.getItem("bwx_address");

@@ -8,14 +8,8 @@ import useSWR, { mutate } from "swr";
 
 const HistoryPage = () => {
 
-  const [data, error, isLoading] = useResource(
-    `bethistory`,
-    [],
-    { useSecureApi: false }
-  );
-
-  // const { data, error } = useSWR("/workers/");
-  // const isLoading = !data && !error;
+  const { data, error } = useSWR("/bethistory/");
+  const isLoading = !data && !error;
 
   console.log(data);
 

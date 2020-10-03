@@ -14,13 +14,9 @@ const columnConfig = {
   proposition: {
     children: "Proposition"
   },
-  timeStamp: {
-    children: "Time"
+  created: {
+    children: "Created"
   }
-//   userID: {
-//     children: "User ID",
-//     dataFormat: uid => <Link to={{ pathname: `/user/${uid}` }}>{uid}</Link>
-//   }
 };
 
 const HistoryTable = ({ data, ...props }) => (
