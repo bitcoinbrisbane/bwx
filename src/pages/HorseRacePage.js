@@ -5,6 +5,7 @@ import useResource from "../hooks/useResource";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
 import Runners from "../components/Runners";
+import useSWR, { mutate } from "swr";
 
 const HorseRacePage = () => {
   const { mnemonic, id } = useParams();
@@ -16,6 +17,9 @@ const HorseRacePage = () => {
     { runners: [] }, // default data while loading
     { useSecureApi: false }
   );
+
+  // const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
+  // const isLoading = !data && !error;
 
   console.log(data);
 
