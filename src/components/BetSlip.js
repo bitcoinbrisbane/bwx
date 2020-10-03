@@ -1,9 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import QRCode from "qrcode.react";
 
-const BetSlip = ({ proposition, address, ...props }) => {
+const BetSlip = ({ proposition, address, status, ...props }) => {
+  
   const payoutAddress = () => {
     const payout_address = localStorage.getItem("bwx_address");
+    return payout_address;
+  };
+
+  const renderPayoutAddress = () => {
+    const payout_address = payoutAddress();
+
     if (payout_address === "" || payout_address === undefined) {
       return (
         <div className="alert alert-danger">
@@ -22,22 +29,34 @@ const BetSlip = ({ proposition, address, ...props }) => {
     return(<QRCode value={url}></QRCode>)
   }
 
-  return (
-    <div className="container">
-
-      { payoutAddress() }
-
+  const renderWagerSatus = () => {
+    return (
       <div className="alert alert-danger">
         Status: Unpaid.  No bitcoin payment received. Once we have received a payment to this
         address your wager will be placed.
       </div>
+    )
+  }
+
+  return (
+    <div className="container">
+
+      {/* { renderPayoutAddress() } */}
+
+      { renderWagerSatus() }
 
       <div className="card">
         <div className="card-header">Bet Slip for {proposition}</div>
         <div className="card-body">
+<<<<<<< HEAD
           <h5 className="card-title">{address}</h5>
           <p className="card-text">
             Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.
+=======
+          <h5 className="card-title">Payment Address: {address}</h5>
+          <p class="card-text">
+            Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.  All winning wages will be paid to { payoutAddress() }
+>>>>>>> 5519b354fe588527ce6381c18e3f72fc81aa37a6
           </p>
 
           { paymentAddress(address) }
