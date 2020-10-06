@@ -14,7 +14,7 @@ const HorseRacePage = () => {
   const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
   const isLoading = !data && !error;
 
-  const defaultValues = { "runners": []};
+  const defaultValues = { "raceNumber": "#", "runners": []};
   const viewModel = data || defaultValues;
 
   return (

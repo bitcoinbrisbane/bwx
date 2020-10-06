@@ -20,7 +20,7 @@ const HorseRacingMatrix = ({ data, ...props }) => {
                 <td>
                   <Link to={{ pathname: `/horses/${meet.mnemonic}/${race.index}` }}>R{race.index}</Link>
                   <br></br>
-                  { asLocalTime(race.line1)}
+                  { moment.utc(race.line1).local().format("H:mm") }
                 </td>
               ))}
 
