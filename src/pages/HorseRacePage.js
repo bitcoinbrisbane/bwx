@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/Layout";
-import useResource from "../hooks/useResource";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
@@ -12,26 +11,21 @@ const HorseRacePage = () => {
   console.log(mnemonic);
   console.log(id);
 
-  const [data, error, isLoading] = useResource(
-    `/horseracing/${mnemonic}/${id}`,
-    { runners: [] }, // default data while loading
-    { useSecureApi: false }
-  );
+  const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
+  const isLoading = !data && !error;
 
-  // const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
-  // const isLoading = !data && !error;
-
-  console.log(data);
+  const defaultValues = { "runners": []};
+  const viewModel = data || defaultValues;
 
   return (
     <Layout>
       <div className="container-fluid py-5">
         <Loader loading={isLoading} />
         <h1 className="mb-3">
-          R{data.raceNumber} {data.raceName}
+          R{viewModel.raceNumber} {viewModel.raceName}
         </h1>
 
-        <Runners data={data} mnemonic={mnemonic} id={id}></Runners>
+        <Runners data={viewModel} mnemonic={mnemonic} id={id}></Runners>
       </div>
     </Layout>
   );

@@ -3,8 +3,9 @@ import QRCode from "qrcode.react";
 import useSWR, { mutate } from "swr";
 
 const BetSlip = ({ proposition, address, status, ...props }) => {
-
-  const { data, error } = useSWR("/bet/status");
+  console.log(address);
+  const { data, error } = useSWR(`/bet/status/${address}`);
+  console.log(data);
   
   const payoutAddress = () => {
     const payout_address = localStorage.getItem("bwx_address");
@@ -51,15 +52,9 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
       <div className="card">
         <div className="card-header">Bet Slip for {proposition}</div>
         <div className="card-body">
-<<<<<<< HEAD
-          <h5 className="card-title">{address}</h5>
-          <p className="card-text">
-            Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.
-=======
           <h5 className="card-title">Payment Address: {address}</h5>
           <p class="card-text">
             Your unique bitcoin address for this wager is <b>{address}</b>.  You can view the status of your bet at any time by visiting this page.  All winning wages will be paid to { payoutAddress() }
->>>>>>> 5519b354fe588527ce6381c18e3f72fc81aa37a6
           </p>
 
           { paymentAddress(address) }

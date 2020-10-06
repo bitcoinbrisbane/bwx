@@ -1,18 +1,18 @@
 import React from "react";
 import Layout from "../components/Layout";
 import useSWR from "swr";
-import useResource from "../hooks/useResource";
 import { Link } from "react-router-dom";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import HorseRacingMatrix from "../components/HorseRacingMatrix";
 
 const HorseRacingPage = () => {
-  const [data, error, isLoading] = useResource(
-    `/horseracing/`,
-    {"meets": []}, // default data while loading
-    { useSecureApi: false }
-  );
+
+  const { data, error } = useSWR(`/horseracing/`);
+  const isLoading = !data && !error;
+
+  const defaultValues = {"meets": []};
+  const viewModel = data || defaultValues;
 
   console.log(data);
 
@@ -22,7 +22,7 @@ const HorseRacingPage = () => {
         <Loader loading={isLoading} />
         <h1 className="mb-3">Horses</h1>
         <h2>Today</h2>
-        <HorseRacingMatrix data={data}></HorseRacingMatrix>
+        <HorseRacingMatrix data={viewModel}></HorseRacingMatrix>
       </div>
     </Layout>
   );

@@ -8,19 +8,9 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
     links = [
       { label: "Horses", onClick: () => history.push("/horses") },
       { label: "Payout Address", onClick: () => history.push("/payoutaddress") },
+      { label: "My Bets", onClick: () => history.push("/mybets") },
       { label: "History", onClick: () => history.push("/history") }
     ];
-
-  // For a dropdown menu item, add an object like this to the links array
-  // {
-  //   label: "Dropdown",
-  //   children: [
-  //     { type: "Item", label: "Action 1", onClick: () => console.log("action") },
-  //     { type: "Item", label: "Action 2", onClick: () => console.log("action") },
-  //     { type: "Divider" },
-  //     { type: "Item", label: "Action 3", onClick: () => console.log("action") }
-  //   ]
-  // }
 
   const renderBrand = () => (
     <Navbar.Brand

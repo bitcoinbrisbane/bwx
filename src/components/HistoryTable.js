@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 // dataField (key) props (value)
 const columnConfig = {
   address: {
-    children: "Address"
+    children: "Address",
+    width: "40%"
   },
   status: {
     children: "Status",

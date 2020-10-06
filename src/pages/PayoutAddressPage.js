@@ -36,9 +36,9 @@ const PayoutAddressPage = () => {
           {payoutAddress()}
 
           <p>
-            In order to use Bet With Coins, we require your bitcoin address
-            where you will receive payouts. These are not stored on our server,
-            but in your local machine's browser cookie. This can be deleted
+            In order to use Bet With Coins we require your bitcoin cash address
+            where you will receive payouts.  These are not stored on our server
+            but in your local machine's browser cookie.  This can be deleted
             anytime by clearing your cookies.
           </p>
 
@@ -51,12 +51,10 @@ const PayoutAddressPage = () => {
 
           <div className="card">
             <div className="card-body">
-              <h3>Your Bitcoin Address</h3>
-
               <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 {({ isSubmitting }) => (
                   <Form className="login-form">
-                    <label>Payout address</label>
+                    <label>Your bitcoin cash payout address</label>
                     <Input name="payout" />
 
                     <button

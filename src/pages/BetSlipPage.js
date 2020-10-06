@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Button } from "react-bootstrap";
 import useResource from "../hooks/useResource";
+import useSWR, { mutate } from "swr";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
@@ -21,7 +22,8 @@ const BetSlipPage = () => {
     { useSecureApi: false }
   );
 
-  //console.log(data);
+  // const { data, error } = useSWR(`/betslip?address=${address}`);
+  // const isLoading = !data && !error;
 
   return (
     <Layout>
