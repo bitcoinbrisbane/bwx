@@ -7,11 +7,22 @@ import Runners from "../components/Runners";
 import useSWR, { mutate } from "swr";
 
 const HorseRacePage = () => {
-  const { mnemonic, id } = useParams();
+  const { date, mnemonic, id } = useParams();
   console.log(mnemonic);
   console.log(id);
 
+  // let meetDate = date;
+  // if (meetDate === undefined) {
+  //   date = new Date();
+  // }
+
   const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
+  
+  // if (mnemonic === 'mc') {
+  //   let { data, error } = useSWR(`/horseracing/melbournecup`);
+  // }
+
+  //const { data, error } = useSWR(`/horseracing/melbournecup`);
   const isLoading = !data && !error;
 
   const defaultValues = { "raceNumber": "#", "runners": []};
