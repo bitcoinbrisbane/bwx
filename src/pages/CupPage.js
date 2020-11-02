@@ -21,7 +21,7 @@ const CupPage = () => {
           R{viewModel.raceNumber} {viewModel.raceName}
         </h1>
 
-        <Runners data={viewModel} mnemonic='FLM' id='7'></Runners>
+        <Runners data={viewModel} date='2020-11-03' mnemonic='FLM' id='7'></Runners>
       </div>
     </Layout>
   );

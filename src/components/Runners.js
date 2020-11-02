@@ -3,16 +3,15 @@ import { Button } from "react-bootstrap";
 import { history } from "../components/Router";
 import bwx from "../apis/bwx";
 
-const Runners = ({ data, mnemonic, id, ...props }) => {
+const Runners = ({ data, date, mnemonic, id, ...props }) => {
 
-  const handleClick = async (mnemonic, id, proposition, runner, type, event) => {
-    console.log("click");
-    console.log(mnemonic);
+  const handleClick = async (date, mnemonic, id, proposition, runner, type, event) => {
 
     const _payout = localStorage.getItem("bwx_address");
 
     const values = {
       coin: "bch",
+      date: date,
       mnemonic: mnemonic,
       payoutaddress: _payout,
       proposition: proposition,
@@ -26,6 +25,8 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
 
     history.push(`/betslip/${result.data}`);
   };
+
+  console.log(date);
 
   return (
     <div>
@@ -52,7 +53,7 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
                   variant="primary"
                   block="true"
                   onClick={e =>
-                    handleClick(mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "win", e)
+                    handleClick(date, mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "win", e)
                   }
                 >
                   {runner.fixedOdds.returnWin}
@@ -63,7 +64,7 @@ const Runners = ({ data, mnemonic, id, ...props }) => {
                   variant="primary"
                   block="true"
                   onClick={e =>
-                    handleClick(mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "place", e)
+                    handleClick(date, mnemonic, id, runner.fixedOdds.propositionNumber, runner.number, "place", e)
                   }
                 >
                   {runner.fixedOdds.returnPlace}
