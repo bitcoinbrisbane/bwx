@@ -5,16 +5,7 @@ import useSWR, { mutate } from "swr";
 const BetSlip = ({ proposition, address, status, ...props }) => {
   
   const payout_address = localStorage.getItem("bwx_address");
-
   console.log(payout_address);
-  console.log(address);
-  const { data, error } = useSWR(`/bet/status?address=${address}`);
-  console.log(data);
-
-  const isLoading = !data && !error;
-
-  const defaultValues = { "status": "loading"};
-  const viewModel = data || defaultValues;
 
   const renderPayoutAddress = () => {
     if (payout_address === "" || payout_address === undefined) {
@@ -59,9 +50,7 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
   return (
     <div className="container">
 
-      {/* { renderPayoutAddress() } */}
-
-      { renderWagerSatus(viewModel.status) }
+      { renderWagerSatus(status) }
 
       <div className="card">
         <div className="card-header">Bet Slip for {proposition}</div>

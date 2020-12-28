@@ -5,7 +5,13 @@ import moment from "moment";
 const HorseRacingMatrix = ({ data, ...props }) => {
 
   const asLocaltime = (raceTime) => {
-    return moment.utc(raceTime).local().format("H:mm");
+    const _time = moment.utc(raceTime).local().format("H:mm");
+
+    if (Date.now() > _time) {
+      return "Completed";
+    }
+
+    return _time.toString(); //moment.utc(raceTime).local().format("H:mm");
   }
 
   return (
@@ -20,7 +26,10 @@ const HorseRacingMatrix = ({ data, ...props }) => {
                 <td>
                   <Link to={{ pathname: `/horses/${meet.mnemonic}/${race.index}` }}>R{race.index}</Link>
                   <br></br>
-                  { moment.utc(race.line1).local().format("H:mm") }
+                  {
+                    asLocaltime(race.line1)
+                  }
+                  {/* { moment.utc(race.line1).local().format("H:mm") } */}
                 </td>
               ))}
 

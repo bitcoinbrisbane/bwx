@@ -8,25 +8,18 @@ import useSWR, { mutate } from "swr";
 
 const HorseRacePage = () => {
   const { date, mnemonic, id } = useParams();
-  console.log(mnemonic);
-  console.log(id);
-
-  // let meetDate = date;
-  // if (meetDate === undefined) {
-  //   date = new Date();
-  // }
+  // console.log(mnemonic);
+  // console.log(id);
 
   const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
-  
-  // if (mnemonic === 'mc') {
-  //   let { data, error } = useSWR(`/horseracing/melbournecup`);
-  // }
-
-  //const { data, error } = useSWR(`/horseracing/melbournecup`);
   const isLoading = !data && !error;
 
   const defaultValues = { "raceNumber": "#", "runners": []};
   const viewModel = data || defaultValues;
+  const _date = Date.now() || date;
+
+  console.log(_date);
+  //console.log(viewModel);
 
   return (
     <Layout>
@@ -36,7 +29,7 @@ const HorseRacePage = () => {
           R{viewModel.raceNumber} {viewModel.raceName}
         </h1>
 
-        <Runners data={viewModel} mnemonic={mnemonic} id={id}></Runners>
+        <Runners data={viewModel} date={_date} mnemonic={mnemonic} id={id}></Runners>
       </div>
     </Layout>
   );

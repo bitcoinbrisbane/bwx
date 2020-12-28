@@ -11,7 +11,7 @@ const Runners = ({ data, date, mnemonic, id, ...props }) => {
 
     const values = {
       coin: "bch",
-      date: date,
+      date: new Date(date).toISOString(),
       mnemonic: mnemonic,
       payoutaddress: _payout,
       proposition: proposition,
@@ -19,6 +19,8 @@ const Runners = ({ data, date, mnemonic, id, ...props }) => {
       runner: runner,
       type: type
     };
+
+    console.log(values);
 
     const url = "/betslip";
     const result = await bwx.open.post(url, values);

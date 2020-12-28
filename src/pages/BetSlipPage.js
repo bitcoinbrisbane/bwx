@@ -12,27 +12,23 @@ const BetSlipPage = () => {
   const { address } = useParams();
   console.log(address);
 
-  const payoutAddress = () => {
-    return localStorage.getItem("bwx_address");
-  }
-
-  // const [data, error, isLoading] = useResource(
-  //   `/betslip?address=${address}`,
-  //   {}, // default data while loading
-  //   { useSecureApi: false }
-  // );
-
   const { data, error } = useSWR(`/betslip?address=${address}`);
+  //const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
+
   const isLoading = !data && !error;
 
-  const defaultValues = { "address": address };
+  const defaultValues = { 
+    "address": address,
+    "status": "unpaid"
+  };
+
   const viewModel = data || defaultValues;
 
   return (
     <Layout>
       <div className="container-fluid py-5">
         <Loader loading={isLoading} />
-        <BetSlip proposition={viewModel.proposition} address={viewModel.address}></BetSlip>
+        <BetSlip proposition={viewModel.proposition} address={viewModel.address} status={viewModel.status}></BetSlip>
       </div>
     </Layout>
   );
