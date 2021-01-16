@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import HorseRacingPage from "../pages/HorseRacingPage";
 import HorseRacePage from "../pages/HorseRacePage";
 import HistoryPage from "../pages/HistoryPage";
+import MyBetsPage from "../pages/MyBetsPage";
 import PayoutAddressPage from "../pages/PayoutAddressPage";
 import BetSlipPage from "../pages/BetSlipPage";
 import { createBrowserHistory } from "history";
@@ -19,6 +20,7 @@ const Router = () => (
       <Route path="/payoutaddress" component={PayoutAddressPage} />
       <Route path="/betslip/:address" component={BetSlipPage} />
       <Route path="/history" component={HistoryPage} />
+      <Route path="/mybets" component={MyBetsPage} />
     </Switch>
     
   </ReactRouter>

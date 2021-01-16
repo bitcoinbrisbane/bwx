@@ -32,4 +32,4 @@ const MyBetsPage = () => {
   );
 };
 
-export default HistoryPage;
+export default MyBetsPage;
