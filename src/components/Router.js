@@ -3,7 +3,6 @@ import { Router as ReactRouter, Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import HorseRacingPage from "../pages/HorseRacingPage";
 import HorseRacePage from "../pages/HorseRacePage";
-import CupPage from "../pages/CupPage";
 import HistoryPage from "../pages/HistoryPage";
 import PayoutAddressPage from "../pages/PayoutAddressPage";
 import BetSlipPage from "../pages/BetSlipPage";
@@ -16,7 +15,6 @@ const Router = () => (
     <Route exact path="/" component={Home} />
     <Switch>
       <Route path="/horses/:mnemonic/:id" component={HorseRacePage} />
-      <Route path="/horses/melbournecup" component={CupPage} />
       <Route path="/horses" component={HorseRacingPage} />
       <Route path="/payoutaddress" component={PayoutAddressPage} />
       <Route path="/betslip/:address" component={BetSlipPage} />

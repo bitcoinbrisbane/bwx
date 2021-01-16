@@ -13,7 +13,7 @@ const BetSlipPage = () => {
   console.log(address);
 
   const { data, error } = useSWR(`/betslip?address=${address}`);
-  //const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
+  const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
 
   const isLoading = !data && !error;
 

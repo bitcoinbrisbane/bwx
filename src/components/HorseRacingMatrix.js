@@ -5,7 +5,12 @@ import moment from "moment";
 const HorseRacingMatrix = ({ data, ...props }) => {
 
   const asLocaltime = (raceTime) => {
+    console.log(raceTime);
+    const __time = raceTime
     const _time = moment.utc(raceTime).local().format("H:mm");
+    //const __time = Date.parse(raceTime);
+
+    //console.log(_time);
 
     if (Date.now() > _time) {
       return "Completed";
