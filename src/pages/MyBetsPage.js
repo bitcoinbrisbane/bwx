@@ -7,13 +7,9 @@ import HistoryTable from "../components/HistoryTable";
 import useSWR, { mutate } from "swr";
 
 const MyBetsPage = () => {
+  const payout_address = localStorage.getItem("bwx_address");
 
-  const payoutAddress = () => {
-    const payout_address = localStorage.getItem("bwx_address");
-    return payout_address;
-  };
-
-  const { data, error } = useSWR(`/bethistory/${payoutAddress}`);
+  const { data, error } = useSWR(`/bethistory/${payout_address}`);
   const isLoading = !data && !error;
 
   console.log(data);
