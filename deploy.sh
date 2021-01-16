@@ -1,21 +1,23 @@
 #!/bin/bash
 
 # Variables
-BRANCH=master
-TEST_BRANCH=development
+# BRANCH=master
+# TEST_BRANCH=development
 
-# Parse options
-while getopts ":th" opt; do
-  case ${opt} in
-    t) 
-      echo "Deploying test"
-      BRANCH=$TEST_BRANCH
-      ;;
-    \?)
-      echo "Deploying production"
-      ;;
-  esac
-done
+# # Parse options
+# while getopts ":th" opt; do
+#   case ${opt} in
+#     t) 
+#       echo "Deploying test"
+#       BRANCH=$TEST_BRANCH
+#       ;;
+#     \?)
+#       echo "Deploying production"
+#       ;;
+#   esac
+# done
+
+BRANCH=master
 
 cd ~/bwx
 git stash
