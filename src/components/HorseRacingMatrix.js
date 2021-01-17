@@ -8,8 +8,8 @@ const HorseRacingMatrix = ({ data, ...props }) => {
     console.log(raceTime);
     const __time = raceTime
     const _time = moment.utc(raceTime).local().format("H:mm");
-    //const __time = Date.parse(raceTime);
 
+    //const __time = Date.parse(raceTime);
     //console.log(_time);
 
     if (Date.now() > _time) {
