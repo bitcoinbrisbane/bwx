@@ -14,6 +14,7 @@ const HorseRacingPage = () => {
   const defaultValues = {"meets": []};
   const viewModel = data || defaultValues;
 
+  console.log("HR data");
   console.log(data);
 
   return (
