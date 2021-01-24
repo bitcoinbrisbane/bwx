@@ -1,5 +1,6 @@
 import React from "react";
 import { Router as ReactRouter, Route, Switch } from "react-router-dom";
+import DogRacingPage from "../pages/DogRacingPage";
 import Home from "../pages/Home";
 import HorseRacingPage from "../pages/HorseRacingPage";
 import HorseRacePage from "../pages/HorseRacePage";
@@ -15,6 +16,7 @@ const Router = () => (
   <ReactRouter history={history}>
     <Route exact path="/" component={Home} />
     <Switch>
+      <Route path="/dogs" component={DogRacingPage} />
       <Route path="/horses/:mnemonic/:id" component={HorseRacePage} />
       <Route path="/horses" component={HorseRacingPage} />
       <Route path="/payoutaddress" component={PayoutAddressPage} />
