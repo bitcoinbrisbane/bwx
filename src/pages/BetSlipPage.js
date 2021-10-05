@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Button } from "react-bootstrap";
-import useResource from "../hooks/useResource";
+// import { Button } from "react-bootstrap";
+// import useResource from "../hooks/useResource";
 import useSWR, { mutate } from "swr";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
@@ -13,13 +13,14 @@ const BetSlipPage = () => {
   console.log(address);
 
   const { data, error } = useSWR(`/betslip?address=${address}`);
-  const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
+  // const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
 
   const isLoading = !data && !error;
 
   const defaultValues = { 
     "address": address,
-    "status": "unpaid"
+    "status": "unpaid",
+    "proposition": ""
   };
 
   const viewModel = data || defaultValues;

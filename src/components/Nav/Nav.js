@@ -7,7 +7,7 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
   if (!links)
     links = [
       { label: "Horses", onClick: () => history.push("/horses") },
-      { label: "Greyhounds", onClick: () => history.push("/dogs") },
+      // { label: "Greyhounds", onClick: () => history.push("/dogs") },
       { label: "Payout Address", onClick: () => history.push("/payoutaddress") },
       { label: "My Bets", onClick: () => history.push("/mybets") },
       { label: "History", onClick: () => history.push("/history") }

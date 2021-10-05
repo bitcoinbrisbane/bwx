@@ -8,9 +8,6 @@ import useSWR, { mutate } from "swr";
 
 const HorseRacePage = () => {
   const { date, mnemonic, id } = useParams();
-  // console.log(mnemonic);
-  // console.log(id);
-
   const { data, error } = useSWR(`/horseracing/${mnemonic}/${id}`);
   const isLoading = !data && !error;
 
@@ -19,7 +16,6 @@ const HorseRacePage = () => {
   const _date = Date.now() || date;
 
   console.log(_date);
-  //console.log(viewModel);
 
   return (
     <Layout>

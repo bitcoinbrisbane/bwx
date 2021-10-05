@@ -16,7 +16,7 @@ const DogRacingPage = () => {
     <Layout>
       <div className="container-fluid py-5">
         <Loader loading={isLoading} />
-        <h1 className="mb-3">Horses</h1>
+        <h1 className="mb-3">Dogs</h1>
         <h2>Today</h2>
         <HorseRacingMatrix data={viewModel}></HorseRacingMatrix>
       </div>

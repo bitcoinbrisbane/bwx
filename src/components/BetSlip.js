@@ -11,7 +11,7 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
     if (payout_address === "" || payout_address === undefined) {
       return (
         <div className="alert alert-danger">
-          You have not entered a payout address!  Click here to set.
+          You have not entered a payout address!  <a href="/payout">Click here to set.</a>
         </div>
       );
     } else {
@@ -27,18 +27,16 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
   }
 
   const renderWagerSatus = (status) => {
-      if (status === "unpaid")
-      {
+      if (status === "unpaid") {
         return (
           <div className="alert alert-danger">
-            Status: Unpaid.  No bitcoin payment received. Once we have received a payment to this
+            Status: Unpaid.  No bitcoin payment has been received. Once we have received a payment to this
             address your wager will be placed.
           </div>
         )
       }
-
-      if (status === "placed")
-      {
+      
+      if (status === "placed") {
         return (
           <div className="alert alert-success">
             Status: Your bet is now confirmed!

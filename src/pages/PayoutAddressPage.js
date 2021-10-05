@@ -31,7 +31,7 @@ const PayoutAddressPage = () => {
     <Layout>
       <div className="container-fluid">
         <div>
-          <h2>Payout Address</h2>
+          <h2>Your Payout Address</h2>
 
           {payoutAddress()}
 
@@ -54,7 +54,7 @@ const PayoutAddressPage = () => {
               <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 {({ isSubmitting }) => (
                   <Form className="login-form">
-                    <label>Your bitcoin cash payout address</label>
+                    <label>Please enter an address to receive your winnings</label>
                     <Input name="payout" />
 
                     <button
