@@ -1,6 +1,7 @@
 import React from "react";
 import QRCode from "qrcode.react";
-import useSWR, { mutate } from "swr";
+// import useSWR, { mutate } from "swr";
+import Button from "react-bootstrap/Button";
 
 const BetSlip = ({ proposition, address, status, ...props }) => {
   
@@ -27,21 +28,47 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
   }
 
   const renderWagerSatus = (status) => {
-      if (status === "unpaid") {
-        return (
-          <div className="alert alert-danger">
-            Status: Unpaid.  No bitcoin payment has been received. Once we have received a payment to this
-            address your wager will be placed.
-          </div>
-        )
-      }
-      
-      if (status === "placed") {
-        return (
-          <div className="alert alert-success">
-            Status: Your bet is now confirmed!
-          </div>
-        )
+      switch(status) {
+        case "unpaid":
+          // code block
+          return (
+            <div className="alert alert-danger">
+              Status: Unpaid.  No bitcoin payment has been received. Once we have received a payment to this
+              address your wager will be placed.
+            </div>
+          )
+        case "placed":
+          return (
+            <div className="alert alert-information">
+              Status: Your bet is now confirmed!
+            </div>
+          )
+        case "won":
+          return (
+            <div className="alert alert-success">
+              Status: Your bet won!
+            </div>
+          )
+        case "lost":
+          return (
+            <div className="alert alert-information">
+              Status: Your bet did not win.
+            </div>
+          )
+        case "pending":
+          return (
+            <div className="alert alert-information">
+              Status: Your bet is pending an offical result.
+            </div>
+          )
+        case "settled":
+          return (
+            <div className="alert alert-success">
+              Status: Your bet has been paid.  Please check your payout address.
+            </div>
+          )
+        default:
+          // code block
       }
   }
 
@@ -59,7 +86,9 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
           </p>
 
           { paymentAddress(address) }
+          
         </div>
+        {/* <Button>Close</Button> */}
       </div>
     </div>
   );

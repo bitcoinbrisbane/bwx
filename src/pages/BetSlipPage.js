@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-// import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 // import useResource from "../hooks/useResource";
 import useSWR, { mutate } from "swr";
 //import ErrorMessage from "../components/ErrorMessage";
