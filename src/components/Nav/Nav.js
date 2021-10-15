@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { history } from "../Router";
+import { history } from "../../Router";
 
 const _Nav = ({ links, noBrand = true, activeTab }) => {
   // Set default links
