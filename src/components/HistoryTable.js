@@ -21,6 +21,8 @@ const columnConfig = {
   }
 };
 
+const props = [{"data-page-list": "[50, 100, all]"}];
+
 const HistoryTable = ({ data, ...props }) => (
   <Table
     data={data}
