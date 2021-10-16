@@ -30,15 +30,15 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
         case "unpaid":
           // code block
           return (
-            <div className="alert alert-danger">
+            <div className="alert alert-warning">
               Status: Unpaid.  No bitcoin payment has been received. Once we have received a payment to this
               address your wager will be placed.
             </div>
           )
         case "placed":
           return (
-            <div className="alert alert-information">
-              Status: Your bet is now confirmed!
+            <div className="alert alert-info">
+              Status: Your bet is now placed.  Good luck!
             </div>
           )
         case "won":
@@ -49,13 +49,13 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
           )
         case "lost":
           return (
-            <div className="alert alert-information">
+            <div className="alert alert-danger">
               Status: Your bet did not win.
             </div>
           )
         case "pending":
           return (
-            <div className="alert alert-information">
+            <div className="alert alert-info">
               Status: Your bet is pending an offical result.
             </div>
           )
