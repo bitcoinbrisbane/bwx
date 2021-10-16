@@ -8,6 +8,7 @@ const Table = ({ columnConfig = {}, hidden = [], data = [], ...props }) => (
     hover
     version="4"
     pagination
+    data-page-size="50"
     tableContainerClass="table-responsive"
     {...props}
   >

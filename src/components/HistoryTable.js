@@ -1,11 +1,13 @@
 import React from "react";
 import Table from "./Table";
+import { Link } from "react-router-dom";
 
 // dataField (key) props (value)
 const columnConfig = {
   address: {
     children: "Address",
-    width: "40%"
+    width: "40%",
+    dataFormat: address => <Link to={{ pathname: `/betslip/${address}` }}>{address}</Link>
   },
   status: {
     children: "Status",
