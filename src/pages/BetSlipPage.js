@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 // import { Button } from "react-bootstrap";
 
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";

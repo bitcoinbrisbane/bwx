@@ -1,9 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
-// import { useParams } from "react-router-dom";
 import HistoryTable from "../components/HistoryTable";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 
 const HistoryPage = () => {
 
