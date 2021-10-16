@@ -4,7 +4,8 @@ import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
 import Runners from "../components/Runners";
-import useSWR, { mutate } from "swr";
+// import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 
 const HorseRacePage = () => {
   const { date, mnemonic, id } = useParams();
