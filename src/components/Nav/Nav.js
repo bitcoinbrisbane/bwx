@@ -48,7 +48,7 @@ const _Nav = ({ links, noBrand = true, activeTab }) => {
     </Navbar.Collapse>
   );
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar>
       {!noBrand && renderBrand()}
       {!links.length || <Navbar.Toggle aria-controls="basic-navbar-nav" />}
       {!links.length || renderLinks()}
