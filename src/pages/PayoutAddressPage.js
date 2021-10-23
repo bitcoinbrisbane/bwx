@@ -1,7 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Formik, Form } from "formik";
-import Input from "../components/form-inputs/Input";
+// import { Formik, Form } from "formik";
+import { Formik } from "formik";
+import { Button, Form, InputGroup } from "react-bootstrap";
+// import Input from "../components/form-inputs/Input";
 
 const PayoutAddressPage = () => {
   const onSubmit = values => {
@@ -35,66 +37,51 @@ const PayoutAddressPage = () => {
         <div className="row">
           <div className="col md-2" />
           <div className="col md-8">
-            <h2>Your Payout Address</h2>
-
-            {payoutAddress()}
-
-            <p>
-              In order to use Bet With Coins we require your bitcoin cash
-              address where you will receive payouts. These are not stored on
-              our server but in your local machine's browser cookie. This can be
-              deleted anytime by clearing your cookies.
-            </p>
-
-            <p>
-              <b>
-                Please make sure you are in control of this address and DO NOT
-                use an exchange address.
-              </b>
-            </p>
-
             <div className="card">
+              <div className="card-header">Your Payout Address</div>
               <div className="card-body">
+                <h5 className="card-title">
+                  Please make sure you are in control of this address and DO NOT
+                  use an exchange address.
+                </h5>
+                <p className="card-text">
+                  In order to use Bet With Coins we require your bitcoin cash
+                  address where you will receive payouts. These are not stored
+                  on our server but in your local machine's browser cookie. This
+                  can be deleted anytime by clearing your cookies.
+                </p>
+
                 <Formik initialValues={initialValues} onSubmit={onSubmit}>
                   {({ isSubmitting }) => (
-                    <Form className="login-form">
-                      <label>
-                        Please enter your wallet address to receive your winnings
-                      </label>
-                      <Input name="payout" />
+                    <Form>
+                      <Form.Group>
+                        <Form.Label>Please enter your wallet address to receive your
+                        winnings.</Form.Label>
+                        <InputGroup>
+                          <Form.Control
+                            type="input"
+                            name="payout"
+                            placeholder="bitcoincash:"
+                          />
+                        </InputGroup>
+                      </Form.Group>
 
-                      <button
+                    
+                      <Button
                         className="btn btn-primary btn-block relative d-flex justify-content-center"
                         type="submit"
                         disabled={isSubmitting}
                       >
                         <span className="mx-2">Save</span>
-                      </button>
+                      </Button>
                     </Form>
                   )}
                 </Formik>
-                {/* <form onSubmit={handleSubmit} className="col-12">
-                  <div className="form-group">
-                    <label>
-                      Enter your bitcoin address where payouts will be received.
-                    </label>
-                    <input
-                      id="payout"
-                      name="payout"
-                      type="text"
-                      className="form-control"
-                      onChange={formik.handleChange}
-                      value={_payout}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <Button type="submit" className="btn btn-primary">
-                      Save
-                    </Button>
-                  </div>
-                </form> */}
               </div>
             </div>
+
+            {payoutAddress()}
+
           </div>
           <div className="col md-2" />
         </div>
