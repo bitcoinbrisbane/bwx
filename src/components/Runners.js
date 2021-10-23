@@ -52,7 +52,7 @@ const Runners = ({ data, date, mnemonic, id, ...props }) => {
               <td>{runner.riderDriverName}</td>
               <td>{runner.handicapWeight} kg</td>
               <td>
-                <Button
+                <Button className="table-btn"
                   variant="primary"
                   block="true"
                   onClick={e =>
@@ -63,7 +63,7 @@ const Runners = ({ data, date, mnemonic, id, ...props }) => {
                 </Button>
               </td>
               <td>
-                <Button
+                <Button className="table-btn"
                   variant="primary"
                   block="true"
                   onClick={e =>
