@@ -11,5 +11,6 @@
 | --- | --- |
 | Unpaid | No payment received |
 | Paid | Payment received |
-| Settled | Settled |
+| Paying | Creating BCH transaction |
+| Settled | Bet finalised and payment sent |
 | Lost | Lost |
