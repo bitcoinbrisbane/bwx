@@ -3,7 +3,7 @@
 `yarn install`  
 `yarn start`  
 
-`.env`
+`cp .env.sample .env`
 
 ## Bet status
 
