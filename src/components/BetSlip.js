@@ -62,11 +62,13 @@ const BetSlip = ({ proposition, address, status, ...props }) => {
         case "settled":
           return (
             <div className="alert alert-success">
-              Status: Your bet has been paid.  Please check your payout address.
+              Status: Your bet has been settled.  Please check your payout address.
             </div>
           )
         default:
-          // code block
+          <div className="alert alert-info">
+            Error: {status}
+          </div>
       }
   }
 
