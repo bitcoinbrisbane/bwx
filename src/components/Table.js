@@ -1,14 +1,19 @@
 import React from "react";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 
+const options = {
+  sizePerPage:50   
+}
+
 const Table = ({ columnConfig = {}, hidden = [], data = [], ...props }) => (
+
   <BootstrapTable
     data={data}
     striped
     hover
     version="4"
     pagination
-    data-page-size="50"
+    options={options}
     tableContainerClass="table-responsive"
     {...props}
   >
