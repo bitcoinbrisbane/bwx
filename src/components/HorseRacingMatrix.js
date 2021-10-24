@@ -5,14 +5,16 @@ import moment from "moment";
 const HorseRacingMatrix = ({ data, ...props }) => {
 
   const asLocaltime = (raceTime) => {
-    console.log(raceTime);
+    
     const _time = moment.utc(raceTime).local().format("H:mm");
+    // console.log(moment.utc(raceTime).unix());
+    // console.log(Date.now());
 
-    if (Date.now() > _time) {
+    if (Date.now() / 1000 > moment.utc(raceTime).unix()) {
       return "Completed";
     }
 
-    return _time.toString(); //moment.utc(raceTime).local().format("H:mm");
+    return _time.toString();
   }
 
   return (
@@ -30,7 +32,8 @@ const HorseRacingMatrix = ({ data, ...props }) => {
                   {
                     asLocaltime(race.line1)
                   }
-                  {/* { moment.utc(race.line1).local().format("H:mm") } */}
+                  <br></br>
+                  {race.line2}
                 </td>
               ))}
 

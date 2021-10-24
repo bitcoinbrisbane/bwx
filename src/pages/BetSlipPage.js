@@ -2,7 +2,8 @@ import React from "react";
 import Layout from "../components/Layout";
 // import { Button } from "react-bootstrap";
 
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
+
 //import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
 import { useParams } from "react-router-dom";
@@ -10,10 +11,8 @@ import BetSlip from "../components/BetSlip";
 
 const BetSlipPage = () => {
   const { address } = useParams();
-  console.log(address);
 
-  const { data, error } = useSWR(`/betslip?address=${address}`);
-  // const { betstatusData, betstatusError } = useSWR(`/bet/status?address=${address}`);
+  const { data, mutate, error } = useSWR(`/betslip?address=${address}`, { refreshInterval: 500 });
 
   const isLoading = !data && !error;
 

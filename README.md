@@ -3,7 +3,7 @@
 `yarn install`  
 `yarn start`  
 
-`.env`
+`cp .env.sample .env`
 
 ## Bet status
 
@@ -11,5 +11,6 @@
 | --- | --- |
 | Unpaid | No payment received |
 | Paid | Payment received |
-| Settled | Settled |
+| Paying | Creating BCH transaction |
+| Settled | Bet finalised and payment sent |
 | Lost | Lost |
